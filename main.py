@@ -42,32 +42,32 @@ try:
     print("\nМатрица A:")
     print_matrix(matrix_A)
 
-    matrix_F = [[elem for elem in raw] for raw in matrix_A]
+    matrix_F = matrix_A.copy()
     print("\nМатрица F:")
     print_matrix(matrix_F)
 
     matrix_C = [[0 for i in range(del_n)] for j in range(del_n)]
     for i in range(del_n):
         for j in range(fixik, n):
-            matrix_C[i][j - (fixik)] = matrix_A[i][j]
+            matrix_C[i][j - (fixik)] = matrix_F[i][j]
     print('\nПодматрица C:')
     print_matrix(matrix_C)
 
     matrix_B = [[0 for i in range(del_n)] for j in range(del_n)]
     for i in range(del_n):
         for j in range(del_n):
-            matrix_B[i][j] = matrix_A[i][j]
+            matrix_B[i][j] = matrix_F[i][j]
 
     matrix_D = [[0 for i in range(del_n)] for j in range(del_n)]
     for i in range(del_n, n):
         for j in range(del_n):
-            matrix_D[i - (fixik)][j] = matrix_A[i][j]
+            matrix_D[i - (fixik)][j] = matrix_F[i][j]
 
     matrix_E = [[0 for i in range(del_n)] for j in range(del_n)]
     for i in range(fixik, n):
         for j in range(fixik, n):
-            matrix_E[i - (fixik)][j - (fixik)] = matrix_A[i][j]
-
+            matrix_E[i - (fixik)][j - (fixik)] = matrix_F[i][j]
+            
     summa = 1
     for i in range(0, del_n):
         for j in range(0, del_n):
@@ -101,7 +101,6 @@ try:
         print("Сумма чисел больше в области 3 меньше чем произведение чисел в области 2,", summa2, "<", summa, ",меняем подматрицы B и E несимметрично")
         matrix_B, matrix_E = matrix_E, matrix_B
 
-    matrix_F = matrix_A.copy()
     paste_matrix(matrix_F, matrix_B, 0, 0)
     paste_matrix(matrix_F, matrix_C, fixik, 0)
     paste_matrix(matrix_F, matrix_E, fixik, fixik)
