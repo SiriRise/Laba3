@@ -89,7 +89,6 @@ try:
         summa2 += matrix_C[i][del_n - 1]
     print("Сумма чисел по периметру области 3:", summa2)
 
-    matrix_F_dump = [[elem for elem in raw] for raw in matrix_F]
     if summa2 > summa:
         print("Сумма чисел больше в области 3 больше чем произведение чисел в области 2,", summa2 , ">", summa, ",меняем область 2 и 3 симметрично")
         g = del_n - 1
