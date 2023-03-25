@@ -136,7 +136,7 @@ try:
     matrix_res = [[0 for i in range(n)] for j in range(n)]
     for i in range(n):
         for j in range(n):
-            matrix_res[i][j] = matrix_AF[i][j] - matrix_KF[i][j]
+            matrix_res[i][j] = matrix_AF[i][j] + matrix_KF[i][j]
     print("\nРезультат A*F+K*F^T:")
     print_matrix(matrix_res)
 
